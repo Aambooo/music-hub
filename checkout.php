@@ -1,27 +1,19 @@
 <?php
-// Start or resume the session
-// session_start();
-
-// Include necessary files
 require('top.php');
 
-// Check if user is logged in
 if (!isset($_SESSION['USER_LOGIN'])) {
     ?>
     <script>
     window.location.href='login.php';
     </script>
     <?php
-    exit; // Exit script if user is not logged in
+    exit;
 }
 
-// Initialize cart total
 $cart_total = 0;
 
-// Check if cart session variable is set and not empty
 if (isset($_SESSION['cart']) && is_array($_SESSION['cart']) && !empty($_SESSION['cart'])) {
     foreach ($_SESSION['cart'] as $key => $val) {
-        // Fetch product details from database based on $key
         $productArr = get_product($con, '', '', $key);
         if (!empty($productArr)) {
             $price = $productArr[0]['price'];
@@ -36,12 +28,10 @@ if (isset($_SESSION['cart']) && is_array($_SESSION['cart']) && !empty($_SESSION[
     window.location.href='cart.php';
     </script>
     <?php
-    exit; // Exit script if cart is empty
+    exit;
 }
 
-// Process form submission
 if (isset($_POST['submit'])) {
-    // Get and sanitize form data
     $address = get_safe_value($con, $_POST['address']);
     $city = get_safe_value($con, $_POST['city']);
     $pincode = get_safe_value($con, $_POST['pincode']);
@@ -49,16 +39,16 @@ if (isset($_POST['submit'])) {
     $user_id = $_SESSION['USER_ID'];
     $total_price = $cart_total;
     $payment_status = 'pending';
-    $order_status = 1; // Default status for new orders
+    $order_status = 1;
     $added_on = date('Y-m-d h:i:s');
     $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
+    $esewa_txnid = '';
+    $esewa_status = '';
 
-    // Insert order into database
-    $insert_order_query = "INSERT INTO `order` (user_id, address, city, pincode, payment_type, total_price, payment_status, order_status, txnid, esewa_txnid, esewa_status, added_on) VALUES ('$user_id', '$address', '$city', '$pincode', '$payment_type', '$total_price', '$payment_status', '$order_status', '$txnid', '', '', '$added_on')";
+    $insert_order_query = "INSERT INTO `order` (user_id, address, city, pincode, payment_type, total_price, payment_status, order_status, txnid, esewa_txnid, esewa_status, added_on) VALUES ('$user_id', '$address', '$city', '$pincode', '$payment_type', '$total_price', '$payment_status', '$order_status', '$txnid', '$esewa_txnid', '$esewa_status', '$added_on')";
     mysqli_query($con, $insert_order_query);
     $order_id = mysqli_insert_id($con);
 
-    // Insert order details into database
     foreach ($_SESSION['cart'] as $key => $val) {
         $productArr = get_product($con, '', '', $key);
         if (!empty($productArr)) {
@@ -69,10 +59,8 @@ if (isset($_POST['submit'])) {
         }
     }
 
-    // Clear cart after placing order
     unset($_SESSION['cart']);
 
-    // Redirect based on payment type
     if ($payment_type == 'cod') {
         ?>
         <script>
@@ -80,9 +68,8 @@ if (isset($_POST['submit'])) {
         </script>
         <?php
     } else if ($payment_type == 'esewa') {
-        // Redirect to eSewa payment gateway
-        $successUrl = "http://php/ecommerce/payment_complete.php?oid=".$txnid;
-        $failureUrl = "http://yourwebsite.com/payment_fail.php";
+        $successUrl = "http://localhost/php/ecommerce/payment_complete.php?oid=".$txnid."&amt=".$total_price;
+        $failureUrl = "http://localhost/php/ecommerce/payment_fail.php";
         $esewa_url = "https://esewa.com.np/epay/main";
         ?>
         <form action="<?php echo $esewa_url; ?>" method="POST" id="esewa_payment_form">
@@ -104,7 +91,6 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<!-- HTML content starts here -->
 <div class="checkout-wrap ptb--100">
     <div class="container">
         <div class="row">
@@ -172,6 +158,5 @@ if (isset($_POST['submit'])) {
 </div>
 
 <?php
-// Include footer
 require('footer.php');
 ?>

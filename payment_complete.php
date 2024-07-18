@@ -1,12 +1,11 @@
 <?php
 require('top.php');
 
-if(isset($_GET['oid'])){
+if(isset($_GET['oid']) && isset($_GET['amt']) && isset($_GET['refId'])){
     $order_id = $_GET['oid'];
     $amt = $_GET['amt'];
     $refId = $_GET['refId'];
 
-    // Validate the payment
     $url = "https://esewa.com.np/epay/transrec";
     $data = [
         'amt' => $amt,
@@ -20,20 +19,17 @@ if(isset($_GET['oid'])){
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
     $response = curl_exec($curl);
+    $curl_error = curl_error($curl);
     curl_close($curl);
 
-    // Debugging information
     if($response === false) {
-        $error = curl_error($curl);
-        echo "cURL Error: $error";
+        echo "cURL Error: $curl_error";
         exit;
     } else {
         echo "Response: $response";
     }
 
-    // Parse the response from eSewa
     if(strpos($response, '<response_code>Success</response_code>') !== false){
-        // Payment was successful
         mysqli_query($con, "UPDATE `order` SET payment_status='success', esewa_txnid='$refId', esewa_status='success' WHERE txnid='$order_id'");
         ?>
         <script>
@@ -41,7 +37,6 @@ if(isset($_GET['oid'])){
         </script>
         <?php
     } else {
-        // Payment failed
         mysqli_query($con, "UPDATE `order` SET payment_status='failed', esewa_status='failed' WHERE txnid='$order_id'");
         ?>
         <script>
