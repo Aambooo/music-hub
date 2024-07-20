@@ -56,9 +56,7 @@
     color: #5c6bc0
 }
 
-.bg-twitter {
-    background: #1da1f2
-}
+
 
 .bg-facebook {
     background: #3b5998
@@ -2399,14 +2397,7 @@ header .form-inline .search-form.close {
     background: #344e86
 }
 
-.social-button .twitter {
-    background: #00aced;
-    color: #fff
-}
 
-.social-button .twitter:hover {
-    background: #0099d4
-}
 
 .social-button i {
     padding: 19px
