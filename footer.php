@@ -27,7 +27,7 @@
                         </div>
                         <!-- End Single Footer Widget -->
                         <!-- Start Single Footer Widget -->
-                        <div class="col-md-2 col-sm-6 col-xs-12 xmt-40">
+                        <!-- <div class="col-md-2 col-sm-6 col-xs-12 xmt-40">
                             <div class="footer">
                                 <h2 class="title__line--2">information</h2>
                                 <div class="ft__inner">
@@ -40,10 +40,10 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- End Single Footer Widget -->
                         <!-- Start Single Footer Widget -->
-                        <div class="col-md-2 col-sm-6 col-xs-12 xmt-40 smt-40">
+                        <!-- <div class="col-md-2 col-sm-6 col-xs-12 xmt-40 smt-40">
                             <div class="footer">
                                 <h2 class="title__line--2">my account</h2>
                                 <div class="ft__inner">
@@ -56,10 +56,10 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- End Single Footer Widget -->
                         <!-- Start Single Footer Widget -->
-                        <div class="col-md-2 col-sm-6 col-xs-12 xmt-40 smt-40">
+                        <!-- <div class="col-md-2 col-sm-6 col-xs-12 xmt-40 smt-40">
                             <div class="footer">
                                 <h2 class="title__line--2">Our service</h2>
                                 <div class="ft__inner">
@@ -72,7 +72,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- End Single Footer Widget -->
                         <!-- Start Single Footer Widget -->
                         <div class="col-md-3 col-sm-6 col-xs-12 xmt-40 smt-40">
@@ -100,8 +100,8 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="copyright__inner">
-                                <p>Copyright© <a href="https://freethemescloud.com/">Free themes Cloud</a> 2018. All right reserved.</p>
-                                <a href="#"><img src="images/others/shape/paypol.png" alt="payment images"></a>
+                                <p>Copyright© <a href="http://localhost/php/ecommerce/index.php"> 2024 MusicGhar</a></p>
+                                
                             </div>
                         </div>
                     </div>
