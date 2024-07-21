@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
 			$_SESSION['ADMIN_ID']=$row['id'];
 			$_SESSION['ADMIN_USERNAME']=$username;
 			$_SESSION['ADMIN_ROLE']=$row['role'];
-			header('location:categories.php');
+			header('location:index.php');
 			die();
 		}
 	}else{
@@ -51,6 +51,8 @@ if(isset($_POST['submit'])){
                <div class="login-form mt-150">
                   <form method="post">
                      <div class="form-group">
+                     <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 20px; text-align:center; ">ADMIN PAGE</h1>
+                     
                         <label>Username</label>
                         <input type="text" name="username" class="form-control" placeholder="Username" required>
                      </div>
