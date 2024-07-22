@@ -96,7 +96,7 @@ $order_percentage = ($total_orders / $total) * 100;
             <div class="col-md-3">
                 <div class="card dashboard-card text-center">
                     <div class="card-body">
-                        <div class="icon"><i class="fa fa-dollar-sign"></i></div>
+                        <div class="icon">Rs</div>
                         <h5>Total Sales</h5>
                         <p><?php echo $total_sales; ?></p>
                     </div>

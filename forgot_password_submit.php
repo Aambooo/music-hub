@@ -17,9 +17,9 @@ if($check_user>0){
 	$mail->Port=587;
 	$mail->SMTPSecure="tls";
 	$mail->SMTPAuth=true;
-	$mail->Username="SMTP_EMAIL";
-	$mail->Password="PASSWORD";
-	$mail->SetFrom("SMTP_EMAIL");
+	$mail->Username="footballisinmyblood7@gmail.com";
+	$mail->Password="zmxd tdeg zbqi sdky";
+	$mail->SetFrom("footballisinmyblood7@gmail.com");
 	$mail->addAddress($email);
 	$mail->IsHTML(true);
 	$mail->Subject="Your Password";

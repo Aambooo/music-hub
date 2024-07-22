@@ -8,17 +8,17 @@
     <!-- Your CSS styles -->
     <style>
         .footer__container {
-            background-color: #000; /* Background color for the footer */
-            padding: 20px 0; /* Padding for the footer */
+            background-color: #000; 
+            padding: 20px 0; 
         }
 
         .footer h2.title__line--2 {
-            color: #fff; /* White color for the footer titles */
-            margin-bottom: 20px; /* Space below the title */
+            color: #fff; 
+            margin-bottom: 20px; 
         }
 
-        .ft__details p {
-            color: #ccc; /* Light grey color for the footer text */
+        .ft__details p, .ft__contact p {
+            color: #ccc; 
         }
 
         .ft__social__link ul.social__link {
@@ -33,8 +33,14 @@
         }
 
         .ft__social__link ul.social__link li a {
-            color: #fff; /* White color for social icons */
-            font-size: 20px; /* Size for social icons */
+            color: #fff; 
+            font-size: 25px; 
+        }
+
+        .footer .col-md-4 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .news__input input[type="text"] {
@@ -47,21 +53,21 @@
         .send__btn a.fr__btn {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #e91e63; /* Button background color */
-            color: #fff; /* Button text color */
+            background-color: #e91e63; 
+            color: #fff; 
             border-radius: 5px;
             text-decoration: none;
             margin-top: 10px;
         }
 
         .htc__copyright {
-            background-color: #333; /* Background color for copyright section */
-            padding: 10px 0; /* Padding for copyright section */
-            text-align: center; /* Center align text */
+            background-color: #333; 
+            padding: 10px 0; 
+            text-align: center;
         }
 
         .htc__copyright p {
-            color: #fff; /* White color for copyright text */
+            color: #fff; 
             margin: 0;
         }
     </style>
@@ -72,32 +78,34 @@
             <div class="container">
                 <div class="row">
                     <!-- ABOUT US Section -->
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="footer">
                             <h2 class="title__line--2">ABOUT US</h2>
                             <div class="ft__details">
                                 <p>Whether you're a professional musician, a student, or a hobbyist, MusicGhar offers an extensive selection of instruments to meet your needs. With a user-friendly interface, secure checkout, and excellent customer service, MusicGhar aims to be your go-to destination for all things musical. Explore our collection and find the perfect instrument to inspire your musical journey.</p>
-                                <div class="ft__social__link">
-                                    <ul class="social__link">
-                                        <li><a href="https://www.instagram.com/"><i class="icon-social-instagram icons"></i></a></li>
-                                        <li><a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F"><i class="icon-social-facebook icons"></i></a></li>
-                                        <li><a href="https://www.google.com/"><i class="icon-social-google icons"></i></a></li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- NEWSLETTER Section -->
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <!-- CONNECT WITH US Section -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="footer">
-                            <h2 class="title__line--2">NEWSLETTER</h2>
-                            <div class="ft__inner">
-                                <div class="news__input">
-                                    <input type="text" placeholder="Your Mail*">
-                                    <div class="send__btn">
-                                        <a class="fr__btn" href="#">Send Mail</a>
-                                    </div>
-                                </div>
+                            <h2 class="title__line--2">CONNECT WITH US</h2>
+                            <div class="ft__social__link">
+                                <ul class="social__link">
+                                    <li><a href="https://www.instagram.com/"><i class="icon-social-instagram icons"></i></a></li>
+                                    <li><a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F"><i class="icon-social-facebook icons"></i></a></li>
+                                    <li><a href="https://www.google.com/"><i class="icon-social-google icons"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ADDRESS AND CONTACT DETAILS Section -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="footer">
+                            <h2 class="title__line--2">ADDRESS & CONTACT DETAILS</h2>
+                            <div class="ft__contact">
+                                <p>Putalisadak, Kathmandu</p>
+                                <p>Contact Number: 01-1234567</p>
                             </div>
                         </div>
                     </div>
@@ -109,7 +117,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="copyright__inner">
-                            <p>Copyright© <a href="http://localhost/php/ecommerce/index.php"> 2024 MusicGhar</a></p>
+                            <p>Copyright© <a href="http://localhost/php/ecommerce/index.php">2024 MusicGhar</a></p>
                         </div>
                     </div>
                 </div>
